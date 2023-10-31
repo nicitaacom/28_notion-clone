@@ -1,4 +1,5 @@
 'use client'
+import { Skeleton } from "@/components/ui/skeleton"
 import { Id } from "@/convex/_generated/dataModel"
 import { cn } from "@/lib/utils"
 import { ChevronDown, ChevronRight, LucideIcon } from "lucide-react"
@@ -49,5 +50,14 @@ return (
         </kbd>
       )}
     </div>
-)
+  )
+}
+
+Item.Skeleton = function ItemSkeleton({level}:{level?:number}) {
+  return (
+    <div className="flex gap-x-2 py-[3px]" style={{paddingLeft:level ? `${(level * 12) + 25}px`: '12px'}}>
+      <Skeleton className="w-4 h-4"/>
+      <Skeleton className="w-4 h-[30%]"/>
+    </div>
+  )
 }
