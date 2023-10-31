@@ -14,10 +14,10 @@ runtimes:
     - python@3.10.8
 lint:
   disabled:
+    - eslint
     - prettier
   enabled:
     - checkov@3.0.14
-    - eslint@8.52.0
     - git-diff-check
     - markdownlint@0.37.0
     - osv-scanner@1.4.2
