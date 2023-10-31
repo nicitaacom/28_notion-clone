@@ -17,7 +17,7 @@ return (
         Welcome to {user?.firstName}&apos;s Jotion
       </h2>
       <Button>
-        <PlusCircle className="w-4 h-4"/>
+        <PlusCircle className="w-4 h-4 mr-2"/>
         Create note
       </Button>
     </div>
