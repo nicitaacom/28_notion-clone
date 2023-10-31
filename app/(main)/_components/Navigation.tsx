@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils"
 import { ChevronsLeft, MenuIcon } from "lucide-react"
 import { usePathname } from "next/navigation"
-import { ElementRef, useRef, useState } from "react"
+import React, { ElementRef, useRef, useState } from "react"
 import {useMediaQuery} from 'usehooks-ts'
 
 	
@@ -16,6 +16,29 @@ export function Navigation () {
   const navbarRef = useRef<ElementRef<'div'>>(null)
   const [isResetting,setIsResetting] = useState(false)
   const [isCollapsed,setIsCollapsed] = useState(isMobile)
+
+  const handleMouseDown = (event:React.MouseEvent<HTMLDivElement,MouseEvent>) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    isResizingRef.current = true
+    document.addEventListener('mosemove',handleMouseMove)
+    document.addEventListener('moseup',handleMouseUp)
+  }
+
+  const handleMouseMove = (event:MouseEvent) => {
+    if (!isResizingRef.current) return
+    let newWidth = event.clientX
+
+    if (newWidth < 240) newWidth = 240
+    if (newWidth > 480) newWidth = 480
+
+    if (sidebarRef.current && navbarRef.current) {
+      sidebarRef.current.style.width = `${newWidth}px`
+      navbarRef.current.style.setProperty("left",`${newWidth}px`)
+    }
+  }
+
 
 return (
     <>
@@ -39,7 +62,7 @@ return (
         </div>
         <div className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10
         right-0 top-0"
-        onMouseDown={() => {}}
+        onMouseDown={handleMouseDown}
         onClick={() => {}}>
 
         </div>
