@@ -8,7 +8,7 @@ export function Navbar () {
   const scrolled = useScrollTop()
 
 return (
-    <div>
+    <div className="z-50 bg-background fixed top-0 flex items-center w-full p-6">
       Navbar
     </div>
 )
