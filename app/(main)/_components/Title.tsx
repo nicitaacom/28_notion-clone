@@ -67,3 +67,8 @@ return (
   )
 }
 
+Title.Skeleton = function TitleSkeleton() {
+  return (
+    <Skeleton className="w-20 h-4 rounded-md"/>
+  )
+}
