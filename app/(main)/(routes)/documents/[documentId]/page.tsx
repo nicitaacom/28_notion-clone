@@ -25,19 +25,15 @@ export default function DocumentIdPage ({params}:DocumentIdPageProps) {
   }
 
   if (document === null) {
-    return (
-    <div className="pb-40">
+    return <div>Not Found</div>
+}
+
+return (
+     <div className="pb-40">
       <div className="h-[35vh]"/>
       <div className="md:max-w-3xl lg:md-max-w-4xl mx-auto">
         <Toolbar initialData={document}/>
       </div>
-    </div>
-  )
-}
-
-return (
-    <div>
-      DocumentId
     </div>
 )
 }
