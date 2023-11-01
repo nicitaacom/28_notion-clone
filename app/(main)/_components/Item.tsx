@@ -34,6 +34,19 @@ export function Item ({id,label,onClick,icon:Icon,active,documentIcon,isSearch,l
   const {user} = useUser()
   const router = useRouter()
   const create = useMutation(api.documents.create)
+  const archive = useMutation(api.documents.archive)
+
+  const onArchive = (event:React.MouseEvent<HTMLDivElement,MouseEvent>) => {
+    event.stopPropagation()
+    if (!id) return
+    const promise = archive({id})
+
+    toast.promise(promise,{
+      loading:"Moving to trash...",
+      success:"Note moved to trash!",
+      error:"Failed to archive note"
+    })
+  }
 
   const handleExpand = (event:React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation()
@@ -97,7 +110,7 @@ return (
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-60" align="start" side="right" forceMount>
-              <DropdownMenuItem onClick={() => {}}>
+              <DropdownMenuItem onClick={onArchive}>
                 <Trash className="w-4 h-4 mr-2"/>
                 Delete
               </DropdownMenuItem>
