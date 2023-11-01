@@ -69,6 +69,6 @@ return (
 
 Title.Skeleton = function TitleSkeleton() {
   return (
-    <Skeleton className="w-20 h-4 rounded-md"/>
+    <Skeleton className="w-20 h-8 rounded-md"/>
   )
 }

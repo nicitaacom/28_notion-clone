@@ -12,6 +12,7 @@ import {DropdownMenu,DropdownMenuTrigger,
   DropdownMenuSeparator} from '@/components/ui/dropdown-menu'
 import { api } from "@/convex/_generated/api"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 	
 
 interface MenuProps {
@@ -55,5 +56,11 @@ export function Menu ({documentId}:MenuProps) {
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
+  )
+}
+
+Menu.Skeleton = function MenuSkeleton() {
+  return (
+    <Skeleton className="w-10 h-10"/>
   )
 }
