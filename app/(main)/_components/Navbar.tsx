@@ -11,6 +11,7 @@ import { MenuIcon } from "lucide-react"
 import { api } from "@/convex/_generated/api"
 import { Id } from "@/convex/_generated/dataModel"
 import { Title } from "./Title"
+import { Banner } from "./Banner"
 
 export function Navbar ({isCollapsed,onResetWidth}:NavbarProps) {
 
@@ -46,6 +47,9 @@ return (
           <Title initialData={document}/>
         </div>
       </nav>
+      {document.isArchived && (
+        <Banner documentId={document._id}/>
+      )}
     </>
 )
 }
