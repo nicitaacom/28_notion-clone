@@ -40,6 +40,7 @@ export function Item ({id,label,onClick,icon:Icon,active,documentIcon,isSearch,l
     event.stopPropagation()
     if (!id) return
     const promise = archive({id})
+    .then(() => router.push('/documents'))
 
     toast.promise(promise,{
       loading:"Moving to trash...",
