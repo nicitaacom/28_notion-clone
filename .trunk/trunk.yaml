@@ -17,6 +17,8 @@ lint:
     - eslint
     - prettier
   enabled:
+    - oxipng@9.0.0
+    - yamllint@1.32.0
     - checkov@3.0.14
     - git-diff-check
     - markdownlint@0.37.0
