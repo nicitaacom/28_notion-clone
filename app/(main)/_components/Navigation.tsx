@@ -12,6 +12,7 @@ import {Popover,PopoverTrigger,PopoverContent} from '@/components/ui/popover'
 import { Item } from "./Item"
 import { toast } from "sonner"
 import { DocumentList } from "./document-list"
+import { TrashBox } from "./trash-box"
 
 	
 
@@ -137,7 +138,7 @@ return (
             <PopoverContent 
             className="p-0 w-72 " 
             side={isMobile ? "bottom" : "right"}>
-              <p>Trash box</p>
+              <TrashBox/>
             </PopoverContent>
           </Popover>
         </div>
