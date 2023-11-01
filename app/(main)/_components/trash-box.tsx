@@ -9,6 +9,7 @@ import { api } from "@/convex/_generated/api"
 import { Id } from "@/convex/_generated/dataModel"
 import { Spinner } from "@/components/spinner"
 import { Input } from "@/components/ui/input"
+import { ConfirmModal } from "@/components/modals/confirm-modal"
 	
 
 export function TrashBox () {
@@ -87,9 +88,11 @@ return (
               <div className="rounded-sm p-2 hover:bg-neutral-200" onClick={e => onRestore(e,document._id)}>
                 <Undo className="w-4 h-4 text-muted-foreground"/>
               </div>
-              <div className="rounded-sm p-2 hover:bg-neutral-200" role="button">
+              <ConfirmModal onConfirm={() => onRemove(document._id)}>
+                <div className="rounded-sm p-2 hover:bg-neutral-200" role="button">
                 <Trash className="w-4 h-4 text-muted-foreground"/>
-              </div>
+                </div>
+              </ConfirmModal>
             </div>
           </div>
         ))}
