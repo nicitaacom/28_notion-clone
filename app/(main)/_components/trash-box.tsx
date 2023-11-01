@@ -2,8 +2,8 @@
 import React, { useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { useQuery,useMutation } from "convex/react"
+import { Search, Trash, Undo } from "lucide-react"
 import { toast } from 'sonner'
-import { Search, Undo } from "lucide-react"
 
 import { api } from "@/convex/_generated/api"
 import { Id } from "@/convex/_generated/dataModel"
@@ -85,7 +85,10 @@ return (
             </span>
             <div className="flex items-center">
               <div className="rounded-sm p-2 hover:bg-neutral-200" onClick={e => onRestore(e,document._id)}>
-                <Undo/>
+                <Undo className="w-4 h-4 text-muted-foreground"/>
+              </div>
+              <div className="rounded-sm p-2 hover:bg-neutral-200" role="button">
+                <Trash className="w-4 h-4 text-muted-foreground"/>
               </div>
             </div>
           </div>
