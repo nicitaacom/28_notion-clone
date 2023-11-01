@@ -31,21 +31,13 @@ export function CoverImageModal () {
       setIsSubmitting(true)
       setFile(file)
 
-      let response
-
-      if (coverImage.url) {
-        response = await edgestore.publicFiles.upload({
+      const response = await edgestore.publicFiles.upload({
           file,
           options:{
             replaceTargetUrl:coverImage.url
           }
         })
-      }
-      else {
-       response = await edgestore.publicFiles.upload({
-          file
-        })
-      }
+    
 
       await update({
         id:params.documentId as Id<'documents'>,
