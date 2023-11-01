@@ -1,22 +1,26 @@
 'use client'
+import React, { ElementRef, useEffect, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
+import { useMutation } from "convex/react"
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react"
+import {useMediaQuery} from 'usehooks-ts'
+import { toast } from "sonner"
 
 import { cn } from "@/lib/utils"
-import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react"
-import React, { ElementRef, useEffect, useRef, useState } from "react"
-import {useMediaQuery} from 'usehooks-ts'
 import { UserItem } from "./user-item"
-import { useMutation } from "convex/react"
 import { api } from "@/convex/_generated/api"
 import {Popover,PopoverTrigger,PopoverContent} from '@/components/ui/popover'
+import { useSearch } from "@/hooks/use-search"
+
 import { Item } from "./Item"
-import { toast } from "sonner"
 import { DocumentList } from "./document-list"
 import { TrashBox } from "./trash-box"
 
 	
 
 export function Navigation () {
+
+  const search = useSearch()
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width:768px)")
   const create = useMutation(api.documents.create)
@@ -122,7 +126,7 @@ return (
         </div>
         <div>
           <UserItem/>
-          <Item label="Search" icon={Search} isSearch onClick={() => {}}/>
+          <Item label="Search" icon={Search} isSearch onClick={search.onOpen}/>
           <Item label="Settings" icon={Settings} onClick={() => {}}/>
           <Item onClick={handleCreate} label='New page' icon={PlusCircle}/>
         </div>
