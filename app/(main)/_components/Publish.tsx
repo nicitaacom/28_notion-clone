@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useMutation } from "convex/react"
-import { Globe } from "lucide-react"
+import { Check, Copy, Globe } from "lucide-react"
 import { toast } from "sonner"
 
 import { Doc } from "@/convex/_generated/dataModel"
@@ -77,8 +77,27 @@ return (
       </PopoverTrigger>
       <PopoverContent className="w-72" align="end" alignOffset={8} forceMount>
         {initialData.isPublished ? (
-          <div>
-            published
+          <div className="space-y-4">
+            <div className="flex gap-x-2 items-center">
+              <Globe className="text-sky-500 animate-pulse w-4 h-4"/>
+              <p className="text-xs font-medium text-sky-500">
+                This note live on web
+              </p>
+            </div>
+            <div className="flex items-center">
+              <input className="flex-1 px-2 text-xs border rounded-l-md h-8 bg-muted truncate"
+               value={url} disabled/>
+               <Button className="h-8 rounded-l-none" onClick={onCopy} disabled={copied}>
+                {copied ? (
+                  <Check className="w-4 h-4"/>
+                ) : (
+                  <Copy className="w-4 h-4"/>
+                )}
+               </Button>
+            </div>
+            <Button className="w-full text-xs" size='sm' disabled={isSubmitting} onClick={onUnPublish}>
+              Unpublish
+            </Button>
           </div>
         ) : (
           <div className="flex flex-col justify-center items-center">
