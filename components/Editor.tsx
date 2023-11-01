@@ -13,7 +13,7 @@ interface EditorProps{
   editable?:boolean
 }
 
-export function Editor ({onChange,initialContent,editable}:EditorProps) {
+function Editor ({onChange,initialContent,editable}:EditorProps) {
 
   const {resolvedTheme} = useTheme()
   const {edgestore} = useEdgeStore()
@@ -37,5 +37,7 @@ return (
     <div>
       <BlockNoteView editor={editor} theme={resolvedTheme === 'dark' ? 'dark' : 'light'}/>
     </div>
-)
+  )
 }
+
+export default Editor
