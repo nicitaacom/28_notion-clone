@@ -100,3 +100,15 @@ export const create = mutation({
     return document
   }
 })
+
+export const getTrash = query({
+  handler:async (context) => {
+    const identity = await context.auth.getUserIdentity()
+
+    if (!identity) {
+      throw new Error('Not authenticated')
+    }
+
+    const userId = identity.subject
+  }
+})
