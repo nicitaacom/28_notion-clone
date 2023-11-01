@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { useQuery,useMutation } from "convex/react"
 import { toast } from 'sonner'
-import { Search } from "lucide-react"
+import { Search, Undo } from "lucide-react"
 
 import { api } from "@/convex/_generated/api"
 import { Id } from "@/convex/_generated/dataModel"
@@ -80,9 +80,14 @@ return (
           <div className="text-sm rounded-sm w-full hover:bg-primary/5 flex justify-between items-center text-primary"
           key={document._id} role="button" onClick={() => onClick(document._id)}
           >
-            <span>
+            <span className="truncate pl-2">
               {document.title}
             </span>
+            <div className="flex items-center">
+              <div className="rounded-sm p-2 hover:bg-neutral-200" onClick={e => onRestore(e,document._id)}>
+                <Undo/>
+              </div>
+            </div>
           </div>
         ))}
       </div>
