@@ -62,7 +62,7 @@ export function Item ({id,label,onClick,icon:Icon,active,documentIcon,isSearch,l
       if (!expanded) {
         onExpand?.()
       }
-      // router.push(`/documents/${documentId}`)
+      router.push(`/documents/${documentId}`)
     })
 
     toast.promise(promise,{
