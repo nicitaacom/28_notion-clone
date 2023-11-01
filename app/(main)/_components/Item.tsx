@@ -2,7 +2,7 @@
 import { Skeleton } from "@/components/ui/skeleton"
 import { Id } from "@/convex/_generated/dataModel"
 import { cn } from "@/lib/utils"
-import { ChevronDown, ChevronRight, LucideIcon } from "lucide-react"
+import { ChevronDown, ChevronRight, LucideIcon, Plus } from "lucide-react"
 
 	
 
@@ -53,6 +53,14 @@ return (
         bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs">⌘</span>K
         </kbd>
+      )}
+
+      {!!id && (
+        <div className="ml-auto flex items-center gap-x-2">
+          <div className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600">
+            <Plus className="w-4 h-4 text-muted-foreground"/>
+          </div>
+        </div>
       )}
     </div>
   )
