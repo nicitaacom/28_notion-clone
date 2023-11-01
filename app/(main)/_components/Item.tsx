@@ -21,6 +21,11 @@ interface ItemProps {
 
 export function Item ({id,label,onClick,icon:Icon,active,documentIcon,isSearch,level=0,onExpand,expanded}:ItemProps) {
 
+  const handleExpand = (event:React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation()
+    onExpand?.()
+  }
+
   const ChevronIcon = expanded ? ChevronDown : ChevronRight
 
 return (
@@ -29,7 +34,7 @@ return (
     active && 'bg-primary/5 text-primary')}
      onClick={onClick} role="button" style={{paddingLeft:level ? `${(level * 12) + 12}px` :'12px'}}>
       {!!id && (
-        <div className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1" onClick={() => {}} role="button">
+        <div className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1" onClick={handleExpand} role="button">
           <ChevronIcon className="w-4 h-4 shrink-0 text-muted-foreground/50"/>
         </div>
       )}
