@@ -1,13 +1,14 @@
 'use client'	
 
-import { ChevronsLeftRight, ChevronsRight } from "lucide-react"
+import { ChevronsLeftRight } from "lucide-react"
 
-import { Avatar,AvatarImage } from "@radix-ui/react-avatar"
 import {DropdownMenu,DropdownMenuContent,
-  DropdownMenuItem,DropdownMenuLabel,
+  DropdownMenuItem,
   DropdownMenuSeparator,DropdownMenuTrigger}
  from '@/components/ui/dropdown-menu'
 import { SignOutButton, useUser } from "@clerk/clerk-react"
+import { Avatar } from "@/components/ui/avatar"
+import { AvatarImage } from "@radix-ui/react-avatar"
 
 export function UserItem () {
 
@@ -35,7 +36,7 @@ return (
           </p>
           <div className="flex gap-x-2 items-center">
             <div className="rounded-md bg-secondary p-1">
-              <Avatar className="w-8 h-8 block">
+              <Avatar className="w-8 h-8">
                 <AvatarImage src={user?.imageUrl}/>
               </Avatar>
             </div>

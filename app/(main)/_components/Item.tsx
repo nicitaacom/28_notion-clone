@@ -29,8 +29,8 @@ return (
     active && 'bg-primary/5 text-primary')}
      onClick={onClick} role="button" style={{paddingLeft:level ? `${(level * 12) + 12}px` :'12px'}}>
       {!!id && (
-        <div className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1" onClick={() => {}} role="button">
-          <ChevronIcon className="w-4 h-4 shrink-0 text-primary-foreground/50"/>
+        <div className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1" onClick={() => {}} role="button">
+          <ChevronIcon className="w-4 h-4 shrink-0 text-muted-foreground/50"/>
         </div>
       )}
       {documentIcon ? (
@@ -38,7 +38,7 @@ return (
           {documentIcon}
         </div>
       ) :
-      <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground"/>
+        <Icon className="shrink-0 w-[18px] h-[18px] mr-2 text-muted-foreground"/>
       }
       <span className="truncate">
         {label}
