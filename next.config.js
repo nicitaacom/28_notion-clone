@@ -1,8 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images:{
-    domains:["files.edgestore.dev"]
-  }
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "2mb",
+    },
+  },
+  reactStrictMode: false,
+  images: {
+    domains: ["files.edgestore.dev"],
+  },
 }
 
 module.exports = nextConfig
